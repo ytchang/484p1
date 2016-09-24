@@ -38,4 +38,4 @@ INSERT INTO Compete VALUES (3, 3);
 
 -- You want to uncomment the following line if using SQLite. Remove -- before the line
 -- Double dash is the comment symbol in scripts.
-PRAGMA foreign_keys = ON;
+--PRAGMA foreign_keys = ON;
