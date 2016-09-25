@@ -10,14 +10,16 @@ INSERT INTO USERS
 )
 SELECT DISTINCT 
 	CAST(uu.USER_ID AS NUMBER), 
-	uu.FIRST_NAME, uu.LAST_NAME, 
+	uu.FIRST_NAME, 
+	uu.LAST_NAME, 
 	CAST(uu.YEAR_OF_BIRTH AS INTEGER), 
 	CAST(uu.MONTH_OF_BIRTH AS INTEGER), 
 	CAST(uu.DAY_OF_BIRTH AS INTEGER), 
 	uu.GENDER
 FROM 
-	PUBLIC_USER_INFORMATION uu;
---keykholt.PUBLIC_USER_INFORMATION uu;
+	keykholt.PUBLIC_USER_INFORMATION uu;
+--PUBLIC_USER_INFORMATION uu;
+
 --------------------------------------------------------------------------------------------------
 
 INSERT INTO FRIENDS 
@@ -29,8 +31,9 @@ SELECT DISTINCT
 	CAST(ff.USER1_ID AS NUMBER), 
 	CAST(ff.USER2_ID AS NUMBER)
 FROM 
-	PUBLIC_ARE_FRIENDS ff;
---keykholt.PUBLIC_ARE_FRIENDS ff;
+	keykholt.PUBLIC_ARE_FRIENDS ff;
+--PUBLIC_ARE_FRIENDS ff;
+
 --------------------------------------------------------------------------------------------------
 
 INSERT INTO CITIES
