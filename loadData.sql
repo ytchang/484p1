@@ -16,8 +16,8 @@ SELECT DISTINCT
 	CAST(uu.DAY_OF_BIRTH AS INTEGER), 
 	uu.GENDER
 FROM 
-	keykholt.PUBLIC_USER_INFORMATION uu;
-
+--	keykholt.PUBLIC_USER_INFORMATION uu;
+keykholt.PUBLIC_USER_INFORMATION uu;
 --------------------------------------------------------------------------------------------------
 
 INSERT INTO FRIENDS 
@@ -254,6 +254,14 @@ FROM
 	keykholt.PUBLIC_TAG_INFORMATION tti;
 
 --------------------------------------------------------------------------------------------------
+
+
+
 --------------------------------------------------------------------------------------------------
+-- TEST ZONE--
+
+--------------------------------------------------------------------------------------------------
+
+
 
 
