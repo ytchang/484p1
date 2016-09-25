@@ -55,7 +55,7 @@ WHERE
 
 --------------------------------------------------------------------------------------------------
 
-INSERT INTO USER_HOMETOWN_CITY(USER_ID,CURRENT_CITY_ID)
+INSERT INTO USER_HOMETOWN_CITY(USER_ID,HOMWTOWN_CITY_ID)
 SELECT DISTINCT CAST(uu.USER_ID AS NUMBER), 			cc.CITY_ID
 FROM keykholt.PUBLIC_USER_INFORMATION uu, CITIES cc
 WHERE
@@ -93,7 +93,7 @@ WHERE
 
 --------------------------------------------------------------------------------------------------
 
-INSERT INTO USER_EVENT
+INSERT INTO USER_EVENTS
 (
 	EVENT_ID,
 	EVENT_CREATOR_ID,
