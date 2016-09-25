@@ -20,6 +20,7 @@ CREATE TABLE FRIENDS
     FOREIGN KEY (USER2_ID) REFERENCES USERS
 );
 
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE CITIES
 (	
@@ -29,7 +30,21 @@ CREATE TABLE CITIES
 	COUNTRY_NAME 	VARCHAR2(100),
 	PRIMARY KEY(CITY_ID)
 );
-	
+
+CREATE SEQUENCE CITIES_sequence
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER CITIES_sequence_tirgger
+BEFORE INSERT ON CITIES
+FOR EACH ROW
+BEGIN
+  SELECT CITIES_sequence.NEXTVAL
+  INTO :NEW.CITY_ID
+  FROM DUAL;	-- select from dummy table
+END;
+/
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE USER_CURRENT_CITY
 (
@@ -40,6 +55,7 @@ CREATE TABLE USER_CURRENT_CITY
  	FOREIGN KEY (CURRENT_CITY_ID) REFERENCES CITIES
 );
 
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE USER_HOMETOWN_CITY
 (
@@ -50,6 +66,7 @@ CREATE TABLE USER_HOMETOWN_CITY
  	FOREIGN KEY (HOMWTOWN_CITY_ID) REFERENCES CITIES
 );
 
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE MESSAGE
 (
@@ -63,6 +80,7 @@ CREATE TABLE MESSAGE
 	FOREIGN KEY (RECEIVER_ID)	REFERENCES USERS
 );
 
+--------------------------------------------------------------------------------------------------	
 
 CREATE TABLE PROGRAMS
 (
@@ -73,6 +91,21 @@ CREATE TABLE PROGRAMS
 	PRIMARY KEY(PROGRAM_ID)
 );
 
+CREATE SEQUENCE PROGRAMS_sequence
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER PROGRAMS_sequence_tirgger
+BEFORE INSERT ON PROGRAMS
+FOR EACH ROW
+BEGIN
+  SELECT PROGRAMS_sequence.NEXTVAL
+  INTO :NEW.PROGRAM_ID
+  FROM DUAL;	-- select from dummy table
+END;
+/
+
+--------------------------------------------------------------------------------------------------	
 
 CREATE TABLE EDUCATION
 (
@@ -83,6 +116,8 @@ CREATE TABLE EDUCATION
 	FOREIGN KEY		(USER_ID)		REFERENCES USERS,
 	FOREIGN KEY		(PROGRAM_ID)	REFERENCES PROGRAMS
 );
+
+--------------------------------------------------------------------------------------------------	
 
 CREATE TABLE USER_EVENTS
 (
@@ -103,6 +138,7 @@ CREATE TABLE USER_EVENTS
 	FOREIGN KEY		(EVENT_CITY_ID)			REFERENCES CITIES
 );
 
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE PARTICIPANTS
 (
@@ -114,6 +150,7 @@ CREATE TABLE PARTICIPANTS
 	FOREIGN KEY		(USER_ID)		REFERENCES USERS
 );
 
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE ALBUMS
 (
@@ -129,7 +166,6 @@ CREATE TABLE ALBUMS
 	FOREIGN KEY		(ALBUM_OWNER_ID)		REFERENCES USERS
 );
 
-
 CREATE TABLE PHOTOS
 (
 	PHOTO_ID 				VARCHAR2(100),
@@ -139,9 +175,15 @@ CREATE TABLE PHOTOS
 	PHOTO_MODIFIED_TIME		TIMESTAMP,
 	PHOTO_LINK				VARCHAR2(2000),
 	PRIMARY KEY		(PHOTO_ID),
-	FOREIGN KEY		(ALBUM_ID)		REFERENCES ALBUMS
+	--FOREIGN KEY		(ALBUM_ID)		REFERENCES ALBUMS
 );
 
+ALTER TABLE ALBUMS ADD CONSTRAINT ALBUMS_REF_PHOTOS FOREIGN KEY (COVER_PHOTO_ID) REFERENCES PHOTOS(PHOTO_ID)
+INITIALLY DEFERRED DEFERRABLE;
+ALTER TABLE PHOTOS ADD CONSTRAINT PHOTOS_REF_ALBUMS FOREIGN KEY (ALBUM_ID) 		 REFERENCES ALBUMS(ALBUM_ID)
+INITIALLY DEFERRED DEFERRABLE;
+
+--------------------------------------------------------------------------------------------------
 
 CREATE TABLE TAGS
 (
@@ -154,6 +196,22 @@ CREATE TABLE TAGS
 	FOREIGN KEY		(TAG_PHOTO_ID)		REFERENCES PHOTOS,
 	FOREIGN KEY		(TAG_SUBJECT_ID)	REFERENCES USERS
 );
+
+--------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
