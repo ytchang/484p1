@@ -26,7 +26,7 @@ VALUES
 INSERT INTO FRIENDS 
 (USER1_ID, USER2_ID)
 VALUES
-('2','1');
+('3','1');
 
 INSERT INTO FRIENDS 
 (USER1_ID, USER2_ID)
@@ -43,8 +43,5 @@ INSERT INTO FRIENDS
 VALUES
 ('3','4');
 ------------------------------------------------------------------------------------
-
-
-
 
 

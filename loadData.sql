@@ -31,7 +31,9 @@ SELECT DISTINCT
 	CAST(ff.USER1_ID AS NUMBER), 
 	CAST(ff.USER2_ID AS NUMBER)
 FROM 
-	keykholt.PUBLIC_ARE_FRIENDS ff;
+	keykholt.PUBLIC_ARE_FRIENDS ff
+WHERE NOT EXIST
+	(SELECT * FROM FRIENDS WHERE ( CAST(ff.USER1_ID AS NUMBER)=USER1_ID AND CAST(ff.USER2_ID AS NUMBER)=USER2_ID ) OR  ( CAST(ff.USER1_ID AS NUMBER)=USER2_ID AND CAST(ff.USER2_ID AS NUMBER)=USER1_ID );
 --PUBLIC_ARE_FRIENDS ff;
 
 --------------------------------------------------------------------------------------------------
