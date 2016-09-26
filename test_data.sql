@@ -1,22 +1,22 @@
 INSERT INTO USERS
 (USER_ID, FIRST_NAME, LAST_NAME, YEAR_OF_BIRTH, MONTH_OF_BIRTH, DAY_OF_BIRTH, GENDER) 
 VALUES
-('1','Ray1','Ho1','1','1','1','1','male');
+('1','Ray1','Ho1','1','1','1','male');
 
 INSERT INTO USERS
 (USER_ID, FIRST_NAME, LAST_NAME, YEAR_OF_BIRTH, MONTH_OF_BIRTH, DAY_OF_BIRTH, GENDER) 
 VALUES
-('2','Ray2','Ho2','2','2','2','2','female');
+('2','Ray2','Ho2','2','2','2','female');
 
 INSERT INTO USERS
 (USER_ID, FIRST_NAME, LAST_NAME, YEAR_OF_BIRTH, MONTH_OF_BIRTH, DAY_OF_BIRTH, GENDER) 
 VALUES
-('3','Ray3','Ho3','3','3','3','3','male');
+('3','Ray3','Ho3','3','3','3','male');
 
 INSERT INTO USERS
 (USER_ID, FIRST_NAME, LAST_NAME, YEAR_OF_BIRTH, MONTH_OF_BIRTH, DAY_OF_BIRTH, GENDER) 
 VALUES
-('4','Ray4','Ho4','4','4','4','4','female');
+('4','Ray4','Ho4','4','4','4','female');
 ------------------------------------------------------------------------------------
 INSERT INTO FRIENDS 
 (USER1_ID, USER2_ID)
